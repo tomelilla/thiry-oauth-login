@@ -10,7 +10,7 @@
 import GoogleLogin from "vue-google-login";
 
 export default {
-  name: "google-login",
+  name: "GoogleLogin",
   props: {
     params: {
       type: Object,

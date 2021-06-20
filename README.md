@@ -27,3 +27,7 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+```
+npm i -S git+ssh://git@gitlab.com:<org>/<project>.git
+```

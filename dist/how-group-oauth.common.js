@@ -7826,35 +7826,6 @@ module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
 
 /***/ }),
 
-/***/ "b0c0":
-/***/ (function(module, exports, __webpack_require__) {
-
-var DESCRIPTORS = __webpack_require__("83ab");
-var defineProperty = __webpack_require__("9bf2").f;
-
-var FunctionPrototype = Function.prototype;
-var FunctionPrototypeToString = FunctionPrototype.toString;
-var nameRE = /^\s*function ([^ (]*)/;
-var NAME = 'name';
-
-// Function instances `.name` property
-// https://tc39.es/ecma262/#sec-function-instances-name
-if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
-  defineProperty(FunctionPrototype, NAME, {
-    configurable: true,
-    get: function () {
-      try {
-        return FunctionPrototypeToString.call(this).match(nameRE)[1];
-      } catch (error) {
-        return '';
-      }
-    }
-  });
-}
-
-
-/***/ }),
-
 /***/ "b313":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10740,6 +10711,11 @@ module.exports = function (key) {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "GoogleLogin", function() { return /* reexport */ Google; });
+__webpack_require__.d(__webpack_exports__, "LineLogin", function() { return /* reexport */ Line; });
+__webpack_require__.d(__webpack_exports__, "FacebookLogin", function() { return /* reexport */ Facebook; });
+
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
 
@@ -10764,18 +10740,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
-var web_dom_collections_for_each = __webpack_require__("159b");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__("b0c0");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=c02312e8&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=2b024bd6&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('GoogleLogin',{attrs:{"params":_vm.params,"onSuccess":_vm.onSuccess,"onFailure":_vm.onFailure}},[_vm._t("default")],2)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=c02312e8&
+// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=2b024bd6&
 
 // EXTERNAL MODULE: ./node_modules/vue-google-login/dist/vue-google-login.min.js
 var vue_google_login_min = __webpack_require__("e571");
@@ -10792,7 +10762,7 @@ var vue_google_login_min_default = /*#__PURE__*/__webpack_require__.n(vue_google
 //
 
 /* harmony default export */ var Googlevue_type_script_lang_js_ = ({
-  name: "google-login",
+  name: "GoogleLogin",
   props: {
     params: {
       type: Object,
@@ -10953,12 +10923,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var Google = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=8cededc0&
-var Linevue_type_template_id_8cededc0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Linevue_type_template_id_8cededc0_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=a0cf84fe&
+var Linevue_type_template_id_a0cf84fe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Linevue_type_template_id_a0cf84fe_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=8cededc0&
+// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=a0cf84fe&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__("d3b7");
@@ -11061,7 +11031,7 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
 
 /* harmony default export */ var Linevue_type_script_lang_js_ = ({
-  name: "line-login",
+  name: "LineLogin",
   props: {
     params: {
       type: Object,
@@ -11208,8 +11178,8 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
 var Line_component = normalizeComponent(
   components_Linevue_type_script_lang_js_,
-  Linevue_type_template_id_8cededc0_render,
-  Linevue_type_template_id_8cededc0_staticRenderFns,
+  Linevue_type_template_id_a0cf84fe_render,
+  Linevue_type_template_id_a0cf84fe_staticRenderFns,
   false,
   null,
   null,
@@ -11218,12 +11188,12 @@ var Line_component = normalizeComponent(
 )
 
 /* harmony default export */ var Line = (Line_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=3ade2ede&
-var Facebookvue_type_template_id_3ade2ede_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Facebookvue_type_template_id_3ade2ede_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=36a0948f&
+var Facebookvue_type_template_id_36a0948f_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Facebookvue_type_template_id_36a0948f_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=3ade2ede&
+// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=36a0948f&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__("b64b");
@@ -11236,6 +11206,9 @@ var es_array_filter = __webpack_require__("4de4");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptor.js
 var es_object_get_own_property_descriptor = __webpack_require__("e439");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
+var web_dom_collections_for_each = __webpack_require__("159b");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.get-own-property-descriptors.js
 var es_object_get_own_property_descriptors = __webpack_require__("dbb4");
@@ -11314,7 +11287,7 @@ function _objectSpread2(target) {
 //
 //
 /* harmony default export */ var Facebookvue_type_script_lang_js_ = ({
-  name: "fackbook-login",
+  name: "FackbookLogin",
   props: {
     params: {
       type: Object,
@@ -11512,8 +11485,8 @@ function _objectSpread2(target) {
 
 var Facebook_component = normalizeComponent(
   components_Facebookvue_type_script_lang_js_,
-  Facebookvue_type_template_id_3ade2ede_render,
-  Facebookvue_type_template_id_3ade2ede_staticRenderFns,
+  Facebookvue_type_template_id_36a0948f_render,
+  Facebookvue_type_template_id_36a0948f_staticRenderFns,
   false,
   null,
   null,
@@ -11523,23 +11496,18 @@ var Facebook_component = normalizeComponent(
 
 /* harmony default export */ var Facebook = (Facebook_component.exports);
 // CONCATENATED MODULE: ./src/components/index.js
-
-
 // src/components/index.js
 
 
 
-var Components = [Google, Line, Facebook];
-
-var install = function install(Vue) {
-  Components.forEach(function (component) {
-    Vue.component(component.name, component);
-  });
-};
-
-/* harmony default export */ var components = ({
-  install: install
-});
+/* harmony default export */ var components = (Google);
+ // const Components = [GoogleLogin, LineLogin, FacebookLogin];
+// const install = function(Vue, options = {}) {
+//   Components.forEach(component => {
+//     Vue.component(component.name, component);
+//   });
+// };
+// export default { install };
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 

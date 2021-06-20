@@ -9,7 +9,7 @@ import axios from "axios";
 import qs from "qs";
 
 export default {
-  name: "line-login",
+  name: "LineLogin",
   props: {
     params: {
       type: Object,

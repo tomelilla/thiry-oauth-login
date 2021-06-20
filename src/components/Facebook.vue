@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "fackbook-login",
+  name: "FackbookLogin",
   props: {
     params: {
       type: Object,
