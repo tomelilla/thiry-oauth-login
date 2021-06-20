@@ -44,11 +44,6 @@ export default {
       };
     }
   },
-  watch: {
-    loginStatus(val) {
-      console.info("👉👉 loginStatus", val);
-    }
-  },
   async created() {
     this.initSdk().then(async () => {
       this.loginStatus = await this.getLoginStatus();

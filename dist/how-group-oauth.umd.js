@@ -11197,12 +11197,12 @@ var Line_component = normalizeComponent(
 )
 
 /* harmony default export */ var Line = (Line_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=36a0948f&
-var Facebookvue_type_template_id_36a0948f_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Facebookvue_type_template_id_36a0948f_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=2bddcd50&
+var Facebookvue_type_template_id_2bddcd50_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Facebookvue_type_template_id_2bddcd50_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=36a0948f&
+// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=2bddcd50&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__("b64b");
@@ -11331,11 +11331,6 @@ function _objectSpread2(target) {
     },
     config: function config() {
       return _objectSpread2(_objectSpread2({}, this.options), this.params);
-    }
-  },
-  watch: {
-    loginStatus: function loginStatus(val) {
-      console.info("👉👉 loginStatus", val);
     }
   },
   created: function created() {
@@ -11494,8 +11489,8 @@ function _objectSpread2(target) {
 
 var Facebook_component = normalizeComponent(
   components_Facebookvue_type_script_lang_js_,
-  Facebookvue_type_template_id_36a0948f_render,
-  Facebookvue_type_template_id_36a0948f_staticRenderFns,
+  Facebookvue_type_template_id_2bddcd50_render,
+  Facebookvue_type_template_id_2bddcd50_staticRenderFns,
   false,
   null,
   null,
