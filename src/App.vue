@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <h4>http://localhost 可測試</h4>
     <GoogleLogin :params="googleConfig" :onLogin="googleLogin"
-      >GoogleLogin</GoogleLogin
+      ><button>GoogleLogin</button></GoogleLogin
     >
     <br />
     <h4>https://domain 可測試</h4>

@@ -8867,6 +8867,22 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "cca6":
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__("23e7");
+var assign = __webpack_require__("60da");
+
+// `Object.assign` method
+// https://tc39.es/ecma262/#sec-object.assign
+// eslint-disable-next-line es/no-object-assign -- required for testing
+$({ target: 'Object', stat: true, forced: Object.assign !== assign }, {
+  assign: assign
+});
+
+
+/***/ }),
+
 /***/ "cdf9":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10080,15 +10096,6 @@ exports.f = wellKnownSymbol;
 
 /***/ }),
 
-/***/ "e571":
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(t,e){ true?e(exports):undefined}(this,(function(t){"use strict";var e,n,i=function(t){return e?Promise.resolve(e):(n||(n=function(t){return new Promise((function(n,i){window.onGapiLoad=function(){window.gapi.load("auth2",(function(){try{e=window.gapi.auth2.init(Object.assign({},t))}catch(t){i({err:"client_id missing or is incorrect, or if you added extra params maybe they are written incorrectly, did you add it to the component or plugin?"})}n(e)}))}}))}(t)),n)},o=function(t,e){if(t)return t[e]();return Promise.reject({err:"Script not loaded correctly, did you added the plugin or the client_id to the component?"})},r={load:function(t){return Promise.all([i(t),new Promise((function(t,e){if(!document.getElementById("auth2_script_id")){var n=document.createElement("script");n.setAttribute("src","https://apis.google.com/js/platform.js?onload=onGapiLoad"),n.setAttribute("async",!0),n.setAttribute("defer","defer"),n.setAttribute("id","auth2_script_id"),document.head.appendChild(n)}t()}))]).then((function(t){return t[0]}))},signIn:function(){return o(e,"signIn")},signOut:function(){return o(e,"signOut")},isSignedIn:function(){return o(e.isSignedIn,"get")},currentUser:function(){return o(e.currentUser,"get")},grantOfflineAccess:function(){return o(e,"grantOfflineAccess")}},s=0;var u=function(t,e,n,i,o,r,s,u,c,d){"boolean"!=typeof s&&(c=u,u=s,s=!1);var a,l="function"==typeof n?n.options:n;if(t&&t.render&&(l.render=t.render,l.staticRenderFns=t.staticRenderFns,l._compiled=!0,o&&(l.functional=!0)),i&&(l._scopeId=i),r?(a=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),e&&e.call(this,c(t)),t&&t._registeredComponents&&t._registeredComponents.add(r)},l._ssrRegister=a):e&&(a=s?function(){e.call(this,d(this.$root.$options.shadowRoot))}:function(t){e.call(this,u(t))}),a)if(l.functional){var f=l.render;l.render=function(t,e){return a.call(e),f(t,e)}}else{var h=l.beforeCreate;l.beforeCreate=h?[].concat(h,a):[a]}return n}({render:function(){var t=this.$createElement,e=this._self._c||t;return this.renderParams&&!this.logoutButton?e("div",{attrs:{id:this.id},on:{click:this.handleClick}}):e("button",{attrs:{id:this.id},on:{click:this.handleClick}},[this._t("default")],2)},staticRenderFns:[]},void 0,{name:"GoogleLogin",props:{params:{type:Object,required:!0},onCurrentUser:{type:Function,default:function(){}},onSuccess:{type:Function,default:function(){}},onFailure:{type:Function,default:function(){}},logoutButton:{type:Boolean,default:!1},renderParams:{type:Object,required:!1}},beforeCreate:function(){this.id="google-signin-btn-".concat(s++)},methods:{handleClick:function(){var t=this,e=this.logoutButton?"signOut":"signIn";r[e]().then((function(e){return t.onSuccess(e)})).catch((function(e){return t.onFailure(e)}))}},mounted:function(){var t=this;r.load(this.params).then((function(){t.renderParams&&!1===t.logoutButton&&window.gapi.signin2.render(t.id,t.renderParams),r.isSignedIn()&&t.onCurrentUser(r.currentUser())})).catch((function(t){console.log(t)}))}},void 0,!1,void 0,void 0,void 0),c={install:function(t,e){t.GoogleAuth=r.load(e)}};t.GoogleLogin=u,t.LoaderPlugin=c,t.default=u,Object.defineProperty(t,"__esModule",{value:!0})}));
-//# sourceMappingURL=vue-google-login.min.js.map
-
-
-/***/ }),
-
 /***/ "e667":
 /***/ (function(module, exports) {
 
@@ -10749,17 +10756,129 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=2b024bd6&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('GoogleLogin',{attrs:{"params":_vm.params,"onSuccess":_vm.onSuccess,"onFailure":_vm.onFailure}},[_vm._t("default")],2)],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=58d2c6c3&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.id},on:{"click":_vm.handleClick}},[_vm._t("default")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=2b024bd6&
+// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=58d2c6c3&
 
-// EXTERNAL MODULE: ./node_modules/vue-google-login/dist/vue-google-login.min.js
-var vue_google_login_min = __webpack_require__("e571");
-var vue_google_login_min_default = /*#__PURE__*/__webpack_require__.n(vue_google_login_min);
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__("d3b7");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
+var es_promise = __webpack_require__("e6cf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.assign.js
+var es_object_assign = __webpack_require__("cca6");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
+var es_array_iterator = __webpack_require__("e260");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__("3ca3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__("ddb0");
+
+// CONCATENATED MODULE: ./src/components/GoogleAuth.js
+
+
+
+
+
+
+var auth2;
+var loadingPromise;
+
+var createScript = function createScript() {
+  // eslint-disable-next-line no-unused-vars
+  return new Promise(function (resolve, reject) {
+    var el = document.getElementById("auth2_script_id");
+
+    if (!el) {
+      var gplatformScript = document.createElement("script");
+      gplatformScript.setAttribute("src", "https://apis.google.com/js/platform.js?onload=onGapiLoad");
+      gplatformScript.setAttribute("async", true);
+      gplatformScript.setAttribute("defer", "defer");
+      gplatformScript.setAttribute("id", "auth2_script_id");
+      document.head.appendChild(gplatformScript);
+    }
+
+    resolve();
+  });
+};
+
+var onGapiLoadPromise = function onGapiLoadPromise(params) {
+  return new Promise(function (resolve, reject) {
+    window.onGapiLoad = function () {
+      window.gapi.load("auth2", function () {
+        try {
+          auth2 = window.gapi.auth2.init(Object.assign({}, params));
+        } catch (err) {
+          reject({
+            err: "client_id missing or is incorrect, or if you added extra params maybe they are written incorrectly, did you add it to the component or plugin?"
+          });
+        }
+
+        resolve(auth2);
+      });
+    };
+  });
+};
+
+var loadingAuth2 = function loadingAuth2(params) {
+  if (auth2) {
+    return Promise.resolve(auth2);
+  } else {
+    if (!loadingPromise) loadingPromise = onGapiLoadPromise(params);
+    return loadingPromise;
+  }
+};
+
+var load = function load(params) {
+  return Promise.all([loadingAuth2(params), createScript()]).then(function (results) {
+    return results[0];
+  });
+};
+
+var wrapper = function wrapper(f, method) {
+  if (f) return f[method]();else {
+    var err = {
+      err: "Script not loaded correctly, did you added the plugin or the client_id to the component?"
+    };
+    return Promise.reject(err);
+  }
+};
+
+var signIn = function signIn() {
+  return wrapper(auth2, "signIn");
+};
+
+var signOut = function signOut() {
+  return wrapper(auth2, "signOut");
+};
+
+var isSignedIn = function isSignedIn() {
+  return wrapper(auth2.isSignedIn, "get");
+};
+
+var currentUser = function currentUser() {
+  return wrapper(auth2.currentUser, "get");
+};
+
+var grantOfflineAccess = function grantOfflineAccess() {
+  return wrapper(auth2, "grantOfflineAccess");
+};
+
+/* harmony default export */ var GoogleAuth = ({
+  load: load,
+  signIn: signIn,
+  signOut: signOut,
+  isSignedIn: isSignedIn,
+  currentUser: currentUser,
+  grantOfflineAccess: grantOfflineAccess
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=script&lang=js&
 //
 //
@@ -10767,8 +10886,8 @@ var vue_google_login_min_default = /*#__PURE__*/__webpack_require__.n(vue_google
 //
 //
 //
-//
-//
+// <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure">Login</GoogleLogin>
+var componentId = 0;
 
 /* harmony default export */ var Googlevue_type_script_lang_js_ = ({
   name: "GoogleLogin",
@@ -10777,37 +10896,70 @@ var vue_google_login_min_default = /*#__PURE__*/__webpack_require__.n(vue_google
       type: Object,
       required: true
     },
+
+    /* offline: {
+    type: Boolean,
+    default: false
+    }, */
+    onCurrentUser: {
+      type: Function,
+      default: function _default() {}
+    },
     onLogin: {
       type: Function,
       default: function _default() {}
     },
-    onLoginout: {
+    onFailure: {
       type: Function,
       default: function _default() {}
+    },
+    logoutButton: {
+      type: Boolean,
+      default: false
+    },
+    renderParams: {
+      type: Object,
+      required: false
     }
   },
-  components: {
-    GoogleLogin: vue_google_login_min_default.a
-  },
-  data: function data() {
-    return {
-      renderParams: {
-        width: 250,
-        height: 50,
-        longtitle: true
-      }
-    };
+  beforeCreate: function beforeCreate() {
+    this.id = "google-signin-btn-".concat(componentId++);
   },
   methods: {
-    onSuccess: function onSuccess(googleUser) {
-      console.log(googleUser); // This only gets the user information: id, name, imageUrl and email
+    handleClick: function handleClick() {
+      var _this = this;
 
-      console.log(googleUser.getBasicProfile());
-      this.onLogin(googleUser.getBasicProfile());
-    },
-    onFailure: function onFailure(res) {
-      console.info("👉👉 res", res);
+      /* if (this.offline) {
+      GoogleAuth['grantOfflineAccess']({ 'redirect_uri': 'postmessage' }).then(result => {
+      return this.onSuccess(result);
+      }).catch(err => {
+      return this.onFailure(err);
+      });
+      } else {
+      } */
+      var method = this.logoutButton ? "signOut" : "signIn";
+      GoogleAuth[method]().then(function (result) {
+        console.info("👉👉 result", result);
+        return _this.onLogin(result);
+      }).catch(function (err) {
+        return _this.onFailure(err);
+      });
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    GoogleAuth.load(this.params).then(function () {
+      if (_this2.renderParams && _this2.logoutButton === false) {
+        window.gapi.signin2.render(_this2.id, _this2.renderParams);
+      }
+
+      if (GoogleAuth.isSignedIn()) {
+        _this2.onCurrentUser(GoogleAuth.currentUser());
+      }
+    }).catch(function (err) {
+      console.log("GoogleAuth", err);
+    });
   }
 });
 // CONCATENATED MODULE: ./src/components/Google.vue?vue&type=script&lang=js&
@@ -10932,18 +11084,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var Google = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=a0cf84fe&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=a0cf84fe&
 var Linevue_type_template_id_a0cf84fe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
 var Linevue_type_template_id_a0cf84fe_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=a0cf84fe&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
-var es_object_to_string = __webpack_require__("d3b7");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
-var es_promise = __webpack_require__("e6cf");
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
 
@@ -10986,15 +11132,6 @@ function _asyncToGenerator(fn) {
 }
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
 var runtime = __webpack_require__("96cf");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
-var es_array_iterator = __webpack_require__("e260");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
-var es_string_iterator = __webpack_require__("3ca3");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
-var web_dom_collections_iterator = __webpack_require__("ddb0");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.url.js
 var web_url = __webpack_require__("2b3d");
@@ -11197,7 +11334,7 @@ var Line_component = normalizeComponent(
 )
 
 /* harmony default export */ var Line = (Line_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"45449ed9-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=2bddcd50&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=2bddcd50&
 var Facebookvue_type_template_id_2bddcd50_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
 var Facebookvue_type_template_id_2bddcd50_staticRenderFns = []
 

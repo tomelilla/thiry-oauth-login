@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure">
-      <slot></slot>
-    </GoogleLogin>
+  <div @click="handleClick" :id="id">
+    <slot></slot>
   </div>
 </template>
 
 <script>
-import GoogleLogin from "vue-google-login";
+// <GoogleLogin :params="params" :onSuccess="onSuccess" :onFailure="onFailure">Login</GoogleLogin>
+let componentId = 0;
+import GoogleAuth from "./GoogleAuth";
 
 export default {
   name: "GoogleLogin",
@@ -16,38 +16,70 @@ export default {
       type: Object,
       required: true
     },
+    /* offline: {
+			type: Boolean,
+			default: false
+		}, */
+    onCurrentUser: {
+      type: Function,
+      default: () => {}
+    },
     onLogin: {
       type: Function,
       default: () => {}
     },
-    onLoginout: {
+    onFailure: {
       type: Function,
       default: () => {}
+    },
+    logoutButton: {
+      type: Boolean,
+      default: false
+    },
+    renderParams: {
+      type: Object,
+      required: false
     }
   },
-  components: {
-    GoogleLogin
-  },
-  data() {
-    return {
-      renderParams: {
-        width: 250,
-        height: 50,
-        longtitle: true
-      }
-    };
+  beforeCreate() {
+    this.id = `google-signin-btn-${componentId++}`;
   },
   methods: {
-    onSuccess(googleUser) {
-      console.log(googleUser);
-
-      // This only gets the user information: id, name, imageUrl and email
-      console.log(googleUser.getBasicProfile());
-      this.onLogin(googleUser.getBasicProfile());
-    },
-    onFailure(res) {
-      console.info("👉👉 res", res);
+    handleClick() {
+      /* if (this.offline) {
+				GoogleAuth['grantOfflineAccess']({ 'redirect_uri': 'postmessage' }).then(result => {
+					return this.onSuccess(result);
+				}).catch(err => {
+					return this.onFailure(err);
+				});
+			} else {
+			} */
+      const method = this.logoutButton ? "signOut" : "signIn";
+      GoogleAuth[method]()
+        .then(result => {
+          console.info("👉👉 result", result);
+          return this.onLogin(result);
+        })
+        .catch(err => {
+          return this.onFailure(err);
+        });
     }
+  },
+  mounted() {
+    GoogleAuth.load(this.params)
+      .then(() => {
+        if (this.renderParams && this.logoutButton === false) {
+          window.gapi.signin2.render(this.id, this.renderParams);
+        }
+        if (GoogleAuth.isSignedIn()) {
+          this.onCurrentUser(GoogleAuth.currentUser());
+        }
+      })
+      .catch(err => {
+        console.log("GoogleAuth", err);
+      });
   }
 };
 </script>
+
+<style></style>
