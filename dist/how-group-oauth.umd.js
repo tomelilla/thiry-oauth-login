@@ -11091,12 +11091,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var Google = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=2e3eb7a8&
-var Linevue_type_template_id_2e3eb7a8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Linevue_type_template_id_2e3eb7a8_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=5e9ba8ee&
+var Linevue_type_template_id_5e9ba8ee_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Linevue_type_template_id_5e9ba8ee_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=2e3eb7a8&
+// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=5e9ba8ee&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
 
@@ -11216,7 +11216,8 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
         client_id: this.params.clientId,
         redirect_uri: this.params.redirectUri,
         state: "howgroup",
-        scope: "profile openid email"
+        scope: "profile email openid" // scope: "profile%20openid%20email"
+
       };
     }
   },
@@ -11251,7 +11252,7 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var url, data;
+        var url, data, response, user;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -11273,7 +11274,8 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
                   client_id: _this.params.clientId,
                   client_secret: _this.params.clientSecret
                 };
-                return _context.abrupt("return", _this.request({
+                _context.next = 7;
+                return _this.request({
                   url: url,
                   method: "POST",
                   headers: {
@@ -11281,15 +11283,34 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
                   },
                   Accept: "application/json, text/plain, */*",
                   data: lib_default.a.stringify(data)
-                }).then(function (response) {
-                  if (response.error) {
-                    return _this.onSuccess(response);
-                  }
+                });
 
-                  return _this.getProfile(response);
-                }));
+              case 7:
+                response = _context.sent;
 
-              case 6:
+                if (!response.error) {
+                  _context.next = 10;
+                  break;
+                }
+
+                return _context.abrupt("return", _this.onSuccess(response));
+
+              case 10:
+                console.info("👉👉 response", response); // const profile = await this.getProfile(response);
+
+                _context.next = 13;
+                return _this.getUser(response);
+
+              case 13:
+                user = _context.sent;
+                console.info("👉👉 user", user);
+
+                _this.onSuccess({
+                  loginStatus: response,
+                  userProfile: user
+                });
+
+              case 16:
               case "end":
                 return _context.stop();
             }
@@ -11298,26 +11319,40 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
       }))();
     },
     getProfile: function getProfile(params) {
-      var _this2 = this;
-
       if (this.isLocalhost) {
         console.warn("👉👉 line login need https public url");
         return;
       }
 
       var url = this.LINE_API + "/v2/profile";
-      this.request({
+      return this.request({
         url: url,
         method: "GET",
         headers: {
           authorization: "".concat(params.token_type, " ").concat(params.access_token)
         },
         Accept: "application/json, text/plain, */*"
-      }).then(function (response) {
-        _this2.onSuccess({
-          loginStatus: params,
-          userProfile: response
-        });
+      });
+    },
+    getUser: function getUser(params) {
+      if (this.isLocalhost) {
+        console.warn("👉👉 line login need https public url");
+        return;
+      }
+
+      var url = this.LINE_API + "/oauth2/v2.1/verify";
+      var post = {
+        id_token: params.id_token,
+        client_id: this.params.clientId
+      };
+      return this.request({
+        url: url,
+        method: "POST",
+        // headers: {
+        //   authorization: `${params.token_type} ${params.id_token}`
+        // },
+        data: lib_default.a.stringify(post),
+        Accept: "application/json, text/plain, */*"
       });
     }
   }
@@ -11334,8 +11369,8 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
 var Line_component = normalizeComponent(
   components_Linevue_type_script_lang_js_,
-  Linevue_type_template_id_2e3eb7a8_render,
-  Linevue_type_template_id_2e3eb7a8_staticRenderFns,
+  Linevue_type_template_id_5e9ba8ee_render,
+  Linevue_type_template_id_5e9ba8ee_staticRenderFns,
   false,
   null,
   null,

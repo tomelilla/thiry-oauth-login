@@ -39,7 +39,8 @@ export default {
         client_id: this.params.clientId,
         redirect_uri: this.params.redirectUri,
         state: "howgroup",
-        scope: "profile openid email"
+        scope: "profile email openid"
+        // scope: "profile%20openid%20email"
       };
     }
   },
@@ -79,7 +80,7 @@ export default {
         client_id: this.params.clientId,
         client_secret: this.params.clientSecret
       };
-      return this.request({
+      const response = await this.request({
         url,
         method: "POST",
         headers: {
@@ -87,11 +88,17 @@ export default {
         },
         Accept: "application/json, text/plain, */*",
         data: qs.stringify(data)
-      }).then(response => {
-        if (response.error) {
-          return this.onSuccess(response);
-        }
-        return this.getProfile(response);
+      });
+      if (response.error) {
+        return this.onSuccess(response);
+      }
+      console.info("👉👉 response", response);
+      // const profile = await this.getProfile(response);
+      const user = await this.getUser(response);
+      console.info("👉👉 user", user);
+      this.onSuccess({
+        loginStatus: response,
+        userProfile: user
       });
     },
     getProfile(params) {
@@ -100,15 +107,33 @@ export default {
         return;
       }
       const url = this.LINE_API + "/v2/profile";
-      this.request({
+      return this.request({
         url,
         method: "GET",
         headers: {
           authorization: `${params.token_type} ${params.access_token}`
         },
         Accept: "application/json, text/plain, */*"
-      }).then(response => {
-        this.onSuccess({ loginStatus: params, userProfile: response });
+      });
+    },
+    getUser(params) {
+      if (this.isLocalhost) {
+        console.warn("👉👉 line login need https public url");
+        return;
+      }
+      const url = this.LINE_API + "/oauth2/v2.1/verify";
+      const post = {
+        id_token: params.id_token,
+        client_id: this.params.clientId
+      };
+      return this.request({
+        url,
+        method: "POST",
+        // headers: {
+        //   authorization: `${params.token_type} ${params.id_token}`
+        // },
+        data: qs.stringify(post),
+        Accept: "application/json, text/plain, */*"
       });
     }
   }
