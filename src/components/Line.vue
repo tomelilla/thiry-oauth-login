@@ -15,11 +15,11 @@ export default {
       type: Object,
       required: true
     },
-    onLogin: {
+    onSuccess: {
       type: Function,
       default: () => {}
     },
-    onLoginout: {
+    onSuccessout: {
       type: Function,
       default: () => {}
     }
@@ -89,7 +89,7 @@ export default {
         data: qs.stringify(data)
       }).then(response => {
         if (response.error) {
-          return this.onLogin(response);
+          return this.onSuccess(response);
         }
         return this.getProfile(response);
       });
@@ -108,7 +108,7 @@ export default {
         },
         Accept: "application/json, text/plain, */*"
       }).then(response => {
-        this.onLogin({ loginStatus: params, userProfile: response });
+        this.onSuccess({ loginStatus: params, userProfile: response });
       });
     }
   }

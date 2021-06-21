@@ -2,15 +2,15 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <h4>http://localhost 可測試</h4>
-    <GoogleLogin :params="googleConfig" :onLogin="googleLogin"
+    <GoogleLogin :params="googleConfig" :onSuccess="googleLogin"
       ><button>GoogleLogin</button></GoogleLogin
     >
     <br />
     <h4>https://domain 可測試</h4>
-    <LineLogin :params="lineConfig" :onLogin="lineLogin"
+    <LineLogin :params="lineConfig" :onSuccess="lineLogin"
       ><button>LineLogin</button></LineLogin
     >
-    <FacebookLogin :params="fbConfig" :onLogin="fbLogin"
+    <FacebookLogin :params="fbConfig" :onSuccess="fbLogin"
       ><button>FacebookLogin</button></FacebookLogin
     >
 

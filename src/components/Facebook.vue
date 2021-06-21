@@ -12,7 +12,7 @@ export default {
       type: Object,
       required: true
     },
-    onLogin: {
+    onSuccess: {
       type: Function,
       default: () => {}
     },
@@ -89,7 +89,7 @@ export default {
         );
       });
       const loginStatus = await this.getLoginStatus();
-      this.onLogin({ loginStatus, userProfile });
+      this.onSuccess({ loginStatus, userProfile });
     },
     getLoginStatus() {
       return new Promise(resolve => window.FB?.getLoginStatus(resolve));

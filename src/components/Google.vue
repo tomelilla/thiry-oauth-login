@@ -24,7 +24,7 @@ export default {
       type: Function,
       default: () => {}
     },
-    onLogin: {
+    onSuccess: {
       type: Function,
       default: () => {}
     },
@@ -57,9 +57,9 @@ export default {
       const method = this.logoutButton ? "signOut" : "signIn";
       GoogleAuth[method]()
         .then(result => {
-          console.info("👉👉 result", result);
+          // console.info("👉👉 result", result);
           const { dt: userProfile, mc: loginStatus } = result;
-          return this.onLogin({ userProfile, loginStatus });
+          return this.onSuccess({ userProfile, loginStatus });
         })
         .catch(err => {
           return this.onFailure(err);
@@ -77,7 +77,9 @@ export default {
         }
       })
       .catch(err => {
-        console.log("GoogleAuth", err);
+        // console.log("GoogleAuth", err);
+        this.onFailure(err);
+        // return err.response.data;
       });
   }
 };

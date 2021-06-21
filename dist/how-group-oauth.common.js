@@ -10747,12 +10747,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=db815fe8&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=aa72d23e&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.id},on:{"click":_vm.handleClick}},[_vm._t("default")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=db815fe8&
+// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=aa72d23e&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__("d3b7");
@@ -10896,7 +10896,7 @@ var componentId = 0;
       type: Function,
       default: function _default() {}
     },
-    onLogin: {
+    onSuccess: {
       type: Function,
       default: function _default() {}
     },
@@ -10930,10 +10930,10 @@ var componentId = 0;
       } */
       var method = this.logoutButton ? "signOut" : "signIn";
       GoogleAuth[method]().then(function (result) {
-        console.info("👉👉 result", result);
+        // console.info("👉👉 result", result);
         var userProfile = result.dt,
             loginStatus = result.mc;
-        return _this.onLogin({
+        return _this.onSuccess({
           userProfile: userProfile,
           loginStatus: loginStatus
         });
@@ -10954,7 +10954,9 @@ var componentId = 0;
         _this2.onCurrentUser(GoogleAuth.currentUser());
       }
     }).catch(function (err) {
-      console.log("GoogleAuth", err);
+      // console.log("GoogleAuth", err);
+      _this2.onFailure(err); // return err.response.data;
+
     });
   }
 });
@@ -11080,12 +11082,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var Google = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=39ee8728&
-var Linevue_type_template_id_39ee8728_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Linevue_type_template_id_39ee8728_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=2e3eb7a8&
+var Linevue_type_template_id_2e3eb7a8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Linevue_type_template_id_2e3eb7a8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=39ee8728&
+// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=2e3eb7a8&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
 
@@ -11179,11 +11181,11 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
       type: Object,
       required: true
     },
-    onLogin: {
+    onSuccess: {
       type: Function,
       default: function _default() {}
     },
-    onLoginout: {
+    onSuccessout: {
       type: Function,
       default: function _default() {}
     }
@@ -11272,7 +11274,7 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
                   data: lib_default.a.stringify(data)
                 }).then(function (response) {
                   if (response.error) {
-                    return _this.onLogin(response);
+                    return _this.onSuccess(response);
                   }
 
                   return _this.getProfile(response);
@@ -11303,7 +11305,7 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
         },
         Accept: "application/json, text/plain, */*"
       }).then(function (response) {
-        _this2.onLogin({
+        _this2.onSuccess({
           loginStatus: params,
           userProfile: response
         });
@@ -11323,8 +11325,8 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
 var Line_component = normalizeComponent(
   components_Linevue_type_script_lang_js_,
-  Linevue_type_template_id_39ee8728_render,
-  Linevue_type_template_id_39ee8728_staticRenderFns,
+  Linevue_type_template_id_2e3eb7a8_render,
+  Linevue_type_template_id_2e3eb7a8_staticRenderFns,
   false,
   null,
   null,
@@ -11333,12 +11335,12 @@ var Line_component = normalizeComponent(
 )
 
 /* harmony default export */ var Line = (Line_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=1db43146&
-var Facebookvue_type_template_id_1db43146_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Facebookvue_type_template_id_1db43146_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=dad0fdde&
+var Facebookvue_type_template_id_dad0fdde_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Facebookvue_type_template_id_dad0fdde_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=1db43146&
+// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=dad0fdde&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__("b64b");
@@ -11438,7 +11440,7 @@ function _objectSpread2(target) {
       type: Object,
       required: true
     },
-    onLogin: {
+    onSuccess: {
       type: Function,
       default: function _default() {}
     },
@@ -11565,7 +11567,7 @@ function _objectSpread2(target) {
               case 5:
                 loginStatus = _context3.sent;
 
-                _this2.onLogin({
+                _this2.onSuccess({
                   loginStatus: loginStatus,
                   userProfile: userProfile
                 });
@@ -11633,8 +11635,8 @@ function _objectSpread2(target) {
 
 var Facebook_component = normalizeComponent(
   components_Facebookvue_type_script_lang_js_,
-  Facebookvue_type_template_id_1db43146_render,
-  Facebookvue_type_template_id_1db43146_staticRenderFns,
+  Facebookvue_type_template_id_dad0fdde_render,
+  Facebookvue_type_template_id_dad0fdde_staticRenderFns,
   false,
   null,
   null,
