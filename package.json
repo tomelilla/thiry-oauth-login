@@ -2,6 +2,7 @@
   "name": "how-group-oauth",
   "version": "0.1.0",
   "main": "dist/how-group-oauth.common.js",
+  "author": "Mandy Lin <mandy.lin@howdesign.com.tw>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/components/index.js",
