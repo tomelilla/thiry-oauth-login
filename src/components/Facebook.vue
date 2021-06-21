@@ -79,7 +79,7 @@ export default {
       });
     },
     async getUserProfile() {
-      const response = await new Promise(resolve => {
+      const userProfile = await new Promise(resolve => {
         window.FB.api(
           "/me",
           { fields: "id,name,email,picture,birthday,gender" },
@@ -88,7 +88,8 @@ export default {
           }
         );
       });
-      this.onLogin(response);
+      const loginStatus = await this.getLoginStatus();
+      this.onLogin({ loginStatus, userProfile });
     },
     getLoginStatus() {
       return new Promise(resolve => window.FB?.getLoginStatus(resolve));

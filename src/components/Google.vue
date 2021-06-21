@@ -58,7 +58,8 @@ export default {
       GoogleAuth[method]()
         .then(result => {
           console.info("👉👉 result", result);
-          return this.onLogin(result);
+          const { dt: userProfile, mc: loginStatus } = result;
+          return this.onLogin({ userProfile, loginStatus });
         })
         .catch(err => {
           return this.onFailure(err);

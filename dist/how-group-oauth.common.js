@@ -10747,12 +10747,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=58d2c6c3&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Google.vue?vue&type=template&id=db815fe8&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":_vm.id},on:{"click":_vm.handleClick}},[_vm._t("default")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=58d2c6c3&
+// CONCATENATED MODULE: ./src/components/Google.vue?vue&type=template&id=db815fe8&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__("d3b7");
@@ -10931,7 +10931,12 @@ var componentId = 0;
       var method = this.logoutButton ? "signOut" : "signIn";
       GoogleAuth[method]().then(function (result) {
         console.info("👉👉 result", result);
-        return _this.onLogin(result);
+        var userProfile = result.dt,
+            loginStatus = result.mc;
+        return _this.onLogin({
+          userProfile: userProfile,
+          loginStatus: loginStatus
+        });
       }).catch(function (err) {
         return _this.onFailure(err);
       });
@@ -11075,12 +11080,12 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var Google = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=a0cf84fe&
-var Linevue_type_template_id_a0cf84fe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Linevue_type_template_id_a0cf84fe_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Line.vue?vue&type=template&id=39ee8728&
+var Linevue_type_template_id_39ee8728_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Linevue_type_template_id_39ee8728_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=a0cf84fe&
+// CONCATENATED MODULE: ./src/components/Line.vue?vue&type=template&id=39ee8728&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
 
@@ -11298,7 +11303,10 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
         },
         Accept: "application/json, text/plain, */*"
       }).then(function (response) {
-        _this2.onLogin(response);
+        _this2.onLogin({
+          loginStatus: params,
+          userProfile: response
+        });
       });
     }
   }
@@ -11315,8 +11323,8 @@ var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
 
 var Line_component = normalizeComponent(
   components_Linevue_type_script_lang_js_,
-  Linevue_type_template_id_a0cf84fe_render,
-  Linevue_type_template_id_a0cf84fe_staticRenderFns,
+  Linevue_type_template_id_39ee8728_render,
+  Linevue_type_template_id_39ee8728_staticRenderFns,
   false,
   null,
   null,
@@ -11325,12 +11333,12 @@ var Line_component = normalizeComponent(
 )
 
 /* harmony default export */ var Line = (Line_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=2bddcd50&
-var Facebookvue_type_template_id_2bddcd50_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
-var Facebookvue_type_template_id_2bddcd50_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"aa9d17b4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Facebook.vue?vue&type=template&id=1db43146&
+var Facebookvue_type_template_id_1db43146_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{on:{"click":_vm.login}},[_vm._t("default")],2)}
+var Facebookvue_type_template_id_1db43146_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=2bddcd50&
+// CONCATENATED MODULE: ./src/components/Facebook.vue?vue&type=template&id=1db43146&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__("b64b");
@@ -11535,7 +11543,7 @@ function _objectSpread2(target) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-        var response;
+        var userProfile, loginStatus;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -11550,11 +11558,19 @@ function _objectSpread2(target) {
                 });
 
               case 2:
-                response = _context3.sent;
+                userProfile = _context3.sent;
+                _context3.next = 5;
+                return _this2.getLoginStatus();
 
-                _this2.onLogin(response);
+              case 5:
+                loginStatus = _context3.sent;
 
-              case 4:
+                _this2.onLogin({
+                  loginStatus: loginStatus,
+                  userProfile: userProfile
+                });
+
+              case 7:
               case "end":
                 return _context3.stop();
             }
@@ -11617,8 +11633,8 @@ function _objectSpread2(target) {
 
 var Facebook_component = normalizeComponent(
   components_Facebookvue_type_script_lang_js_,
-  Facebookvue_type_template_id_2bddcd50_render,
-  Facebookvue_type_template_id_2bddcd50_staticRenderFns,
+  Facebookvue_type_template_id_1db43146_render,
+  Facebookvue_type_template_id_1db43146_staticRenderFns,
   false,
   null,
   null,

@@ -108,7 +108,7 @@ export default {
         },
         Accept: "application/json, text/plain, */*"
       }).then(response => {
-        this.onLogin(response);
+        this.onLogin({ loginStatus: params, userProfile: response });
       });
     }
   }
